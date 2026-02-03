@@ -18,6 +18,11 @@ export const portfolioData =
         id: "linkedin"
       },
       { 
+        name: "GeeksForGeeks", 
+        url: "https://www.geeksforgeeks.org/profile/shashwa1b1q?tab=activity", // <--- UPDATE THIS
+        id: "geeksforgeeks"
+      },
+      { 
         name: "GitHub", 
         url: "https://github.com/BeingShashwat", // <--- UPDATE THIS
         id: "github"
