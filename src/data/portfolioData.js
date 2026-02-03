@@ -10,7 +10,7 @@ export const portfolioData =
   tagline: "Building responsive systems with algorithmic precision.",
   bio: "Developer with strong foundations in Data Structures (1700+ LeetCode) and experience building responsive frontend applications. Focused on implementing practical solutions and currently learning backend technologies to build complete, end-to-end systems.",
   social: {
-    email: "shashwatm878@gmail.com",
+    email: "ershashwatm@gmail.com",
     formal: [
       { 
         name: "LinkedIn", 
