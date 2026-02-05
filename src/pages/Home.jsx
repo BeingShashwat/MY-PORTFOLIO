@@ -1,10 +1,10 @@
 // src/pages/Home.jsx
 import { portfolioData } from "../data/portfolioData";
 import { Button } from "@/components/ui/button";
-import { Terminal, Activity, Mail } from "lucide-react"; 
+import { Terminal, Activity, Mail, FileText } from "lucide-react"; 
 import { Link } from "react-router-dom";
 
-// Helper component to load icons from /public/assets/
+// Helper component
 const SocialIcon = ({ id, className }) => (
   <img 
     src={`/assets/${id}.svg`} 
@@ -30,8 +30,8 @@ export default function Home() {
             </div>
         </div>
 
-        {/* Hero Heading */}
-        <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-white">
+        {/* Hero Heading - Static & Gradient */}
+        <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-slate-100 via-indigo-200 to-indigo-400">
           Hi, <br />
           I'm {portfolioData.name}.
         </h1>
@@ -42,23 +42,16 @@ export default function Home() {
         </p>
         
         {/* Bio */}
-        <p className="text-slate-500 max-w-2xl text-lg leading-relaxed">
+        <p className="text-slate-500 max-w-2xl text-lg text-justify">
           {portfolioData.bio}
         </p>
 
-        {/* Socials Section (View Work Removed) */}
+        {/* Social Buttons */}
         <div className="space-y-6 pt-4">
           <div className="flex flex-wrap gap-4">
-            
-            {/* Formal Socials - Now aligned to the start */}
             {portfolioData.social.formal.map((profile) => (
               <a key={profile.name} href={profile.url} target="_blank" rel="noreferrer">
-                <Button 
-                  variant="outline" 
-                  size="lg" 
-                  className="group rounded-full border-slate-700 bg-slate-900/50 text-slate-300 hover:bg-indigo-500 hover:text-white hover:border-indigo-500 transition-all h-11"
-                >
-                  {/* Icon Image */}
+                <Button variant="outline" size="lg" className="group rounded-full border-slate-700 bg-slate-900/50 text-slate-300 hover:bg-indigo-500 hover:text-white hover:border-indigo-500 transition-all h-11">
                   <SocialIcon id={profile.id} className="mr-2 w-4 h-4" />
                   {profile.name}
                 </Button>
@@ -66,20 +59,12 @@ export default function Home() {
             ))}
           </div>
 
-          {/* Informal Socials */}
           <div className="flex items-center gap-4 text-sm text-slate-600">
             <span className="text-xs font-semibold uppercase tracking-wider">Socials</span>
             <div className="w-px h-4 bg-slate-800"></div>
             <div className="flex gap-4">
                 {portfolioData.social.informal.map((profile) => (
-                  <a 
-                    key={profile.name} 
-                    href={profile.url} 
-                    target="_blank" 
-                    rel="noreferrer"
-                    className="group transition-colors"
-                    title={profile.name}
-                  >
+                  <a key={profile.name} href={profile.url} target="_blank" rel="noreferrer" className="group transition-colors" title={profile.name}>
                     <SocialIcon id={profile.id} className="w-6 h-6 p-0.5 hover:scale-110 transition-transform" />
                   </a>
                 ))}
@@ -87,20 +72,32 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Minimal Contact Section */}
+        {/* Contact & Resume Section */}
         <div className="pt-10 mt-8 border-t border-slate-800/40 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
             <div className="space-y-1">
                 <h2 className="text-lg font-semibold text-slate-200">Ready to collaborate?</h2>
                 <p className="text-slate-500 text-sm">Open for full-time opportunities and freelance projects.</p>
             </div>
             
-            <a href={`mailto:${portfolioData.social.email}`}>
-                <Button variant="outline" className="rounded-full border-indigo-500/30 bg-indigo-500/5 text-indigo-400 hover:bg-indigo-500 hover:text-white transition-all group">
-                    <Mail className="mr-2 w-4 h-4 group-hover:scale-110 transition-transform" /> 
-                    Say Hello
-                </Button>
-            </a>
+            <div className="flex gap-3">
+                {/* Resume Button - Now Downloads from /assets/ */}
+                <a href="/assets/resume.pdf" download="Shashwat_Mishra_Resume.pdf">
+                    <Button variant="outline" className="rounded-full border-slate-700 bg-transparent text-slate-300 hover:bg-slate-800 transition-all">
+                        <FileText className="mr-2 w-4 h-4" /> 
+                        View CV
+                    </Button>
+                </a>
+
+                {/* Say Hello Button */}
+                <a href={`mailto:${portfolioData.social.email}`}>
+                    <Button variant="outline" className="rounded-full border-indigo-500/30 bg-indigo-500/5 text-indigo-400 hover:bg-indigo-500 hover:text-white transition-all group">
+                        <Mail className="mr-2 w-4 h-4 group-hover:scale-110 transition-transform" /> 
+                        Say Hello
+                    </Button>
+                </a>
+            </div>
         </div>
+
       </div>
     </div>
   );

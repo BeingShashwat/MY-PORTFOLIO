@@ -1,3 +1,4 @@
+// src/pages/Work.jsx
 import { portfolioData } from "../data/portfolioData";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
@@ -36,14 +37,13 @@ export default function Work() {
         </div>
       </section>
 
-      {/* Projects Section - NOW A GRID INSTEAD OF SLIDER */}
+      {/* Projects Section */}
       <section>
         <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-2">
           <span className="w-8 h-[2px] bg-indigo-500 rounded-full"></span>
           Featured Projects
         </h2>
         
-        {/* CHANGED: Swiper removed, Grid added */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {portfolioData.projects.map((project) => (
             <a 
@@ -53,7 +53,8 @@ export default function Work() {
                 rel="noreferrer"
                 className="block h-full"
             >
-                <Card className="bg-slate-900/50 border-slate-800 h-full hover:border-indigo-500/50 hover:bg-slate-900/80 transition-all duration-300 flex flex-col group cursor-pointer">
+                {/* UPDATED CARD STYLING: Backdrop Blur + Blue Glow on Hover */}
+                <Card className="bg-slate-900/40 backdrop-blur-md border-slate-800 h-full hover:border-indigo-500/50 hover:bg-slate-900/60 hover:shadow-[0_0_25px_-5px_rgba(79,70,229,0.15)] transition-all duration-300 flex flex-col group cursor-pointer">
                 <CardHeader>
                     <div className="flex justify-between items-start mb-2">
                         <span className="text-xs font-mono text-indigo-400 uppercase tracking-wider">{project.category}</span>
